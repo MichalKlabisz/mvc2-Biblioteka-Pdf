@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DocumentsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DocumentsDBModelStoreContainer">
+          <EntitySet Name="Document" EntityType="DocumentsDBModel.Store.Document" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="FilePath" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Authors" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="FilePath" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DocumentsDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DocumentsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Document" EntityType="DocumentsDBModel.Document" />
+        </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="FilePath" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Authors" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DocumentsDBModelStoreContainer" CdmEntityContainer="DocumentsDBEntities">
+          <EntitySetMapping Name="Document"><EntityTypeMapping TypeName="DocumentsDBModel.Document"><MappingFragment StoreEntitySet="Document">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Authors" ColumnName="Authors" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Rating" ColumnName="Rating" />
+            <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DocumentModel">
+        <EntityTypeShape EntityType="DocumentsDBModel.Document" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
